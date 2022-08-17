@@ -3,8 +3,8 @@
         {
             "id": "1",
             "status": "gen_stayed",
-            "img": "https://www.subway.com/-/media/UniversalNav/Logo/Primary/Desktop2x.png",
-            "brand": "brand_subway",
+            "img": "https://order.subway.com/en-us/-/media/northamerica/Shared-Content/US_W3_Catering_HP_50_50_640x640.png?la=en-US&h=640&w=640&mw=0&hash=0F438B658A45A0FC511BB106CAB87663",
+            "brand": "Subway",
             "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
             "country": "country_usa",
             "category": "category_fastfood",
@@ -20,8 +20,8 @@
         {
             "id": "2",
             "status": "gen_stayed",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Domino%27s_pizza_logo.svg/1200px-Domino%27s_pizza_logo.svg.png",
-            "brand": "brand_dominos-pizza",
+            "img": "https://pbs.twimg.com/media/FV3zkZfUcAEkFiy.jpg",
+            "brand": "Dominos pizza",
             "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
             "country": "country_usa",
             "category": "category_fastfood",

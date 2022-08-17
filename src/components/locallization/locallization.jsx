@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import i18next from 'i18next';
 import cookies from 'js-cookie';
 import classNames from 'classnames';
@@ -22,7 +22,7 @@ const languages = [
 ];
 
 export default function Locallization() {
-    const currentLanguageCode = cookies.get('i18next') || 'en';
+    const [currentLanguageCode, setCurrentLanguageCode] = useState(cookies.get('i18next') || 'en');
 
     return (
         <div className="container pt-3">
@@ -39,7 +39,7 @@ export default function Locallization() {
                                         disabled: currentLanguageCode === code,
                                     })}
                                        onClick={() => {
-                                           i18next.changeLanguage(code)
+                                           setCurrentLanguageCode(i18next.changeLanguage(code))
                                        }}>
                     <span className={`flag-icon flag-icon-${country_code} mx-2`}
                           style={{

@@ -11,7 +11,7 @@ const navlinks = [
 
 const Navbar = () => {
     const {t: translateKey} = useTranslation();
-    const currentLanguageCode = cookies.get('i18next') || 'en';
+    const currentLanguageCode = cookies.get('i18next') || 'en'; //to-do create context for current lang
     const localeDonateLink = `https://savelife.in.ua/${currentLanguageCode}/`;
 
     return (

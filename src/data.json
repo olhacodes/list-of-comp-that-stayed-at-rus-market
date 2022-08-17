@@ -8,14 +8,12 @@
             "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
             "country": "country_usa",
             "category": "category_fastfood",
-            "locations": "locations_subway",
             "market": "country_antigua, country_agrentina, country_aruba",
             "proof_url": "https://www.subway.com/pressreleases/supportofukrainianrefugees.pdf",
-            "proof_type": "Official Statement",
             "proof_explanation": "proof_explanation-subway",
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
-            "message": "subway_message"
+            "alertMessage": "subway_alertMessage"
         },
         {
             "id": "2",
@@ -25,14 +23,12 @@
             "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
             "country": "country_usa",
             "category": "category_fastfood",
-            "locations": "locations_dominos-pizza",
             "market": "country_ antigua, country_ agrentina, country_aruba",
             "proof_url": "https://www.subway.com/pressreleases/supportofukrainianrefugees.pdf",
-            "proof_type": "Official Statement",
-            "proof_explanation": "proof_explanation-subway",
+            "proof_explanation": "proof_explanation-dominos-pizza",
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
-            "message": "dominos-pizza_message"
+            "alertMessage": "dominos-pizza_alertMessage"
         },
         {
             "id": "3"

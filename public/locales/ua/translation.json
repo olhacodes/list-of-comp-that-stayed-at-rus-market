@@ -6,5 +6,9 @@
   "gen__save-life": "Врятувати життя",
   "country_usa": "CША",
   "category_fastfood": "фаст-фуд",
-  "proof_explanation-subway": ""
+  "proof_explanation-subway": "Частково контролює ці фрначайзи у росії",
+  "subway_alertMessage": "450 франчайзингових ресторанів в росії",
+  "dominos-pizza_alertMessage": "188 франчайзингових локацій в Росії",
+  "proof_explanation-dominos-pizza": "Російське відділення Domino призупиняє виплату роялті, але піцерії залишаються відкритими",
+  "gen_push-company": "Вплинути на компанію"
 }

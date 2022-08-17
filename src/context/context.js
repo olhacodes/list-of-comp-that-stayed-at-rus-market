@@ -6,14 +6,26 @@ export const ProjectContext = createContext({});
 
 export const ProjectProvider = ({children}) => {
     const [currentLanguageCode, setCurrentLanguageCode] = useState(cookies.get('i18next') || 'en');
+    const [openModal, setOpenModal] = React.useState(false);
 
     const changeLanguage = (code) => {
         setCurrentLanguageCode(i18next.changeLanguage(code))
     };
 
+    const handleOpenModal = () => {
+        setOpenModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    };
+
     const value = {
         currentLanguageCode,
-        changeLanguage
+        changeLanguage,
+        openModal,
+        handleOpenModal,
+        handleCloseModal
     }
 
     return (

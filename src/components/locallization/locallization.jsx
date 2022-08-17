@@ -1,7 +1,5 @@
 import React, {useContext} from 'react';
-import i18next from 'i18next';
 import classNames from 'classnames';
-
 import {ProjectContext} from "../../context/context";
 
 import GlobeIcon from '../globeIcon';

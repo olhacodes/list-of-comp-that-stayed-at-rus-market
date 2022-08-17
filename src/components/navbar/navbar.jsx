@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useTranslation} from 'react-i18next';
 
 import Locallization from "../locallization";
-import cookies from "js-cookie";
+import {ProjectContext} from "../../context/context";
 
 const navlinks = [
     {name: "menu__home", link: '/'},
@@ -11,10 +11,10 @@ const navlinks = [
 
 const Navbar = () => {
     const {t: translateKey} = useTranslation();
-    const currentLanguageCode = cookies.get('i18next') || 'en'; //to-do create context for current lang
-    const localeDonateLink = `https://savelife.in.ua/${currentLanguageCode}/`;
+    const {currentLanguageCode} = useContext(ProjectContext);
+    const localeDonateLink = `https://savelife.in.ua/${currentLanguageCode === 'en' ? currentLanguageCode + '/' : ''}`;
 
-    return (
+    return ( 
         <div className="container">
             <Locallization/>
             <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">

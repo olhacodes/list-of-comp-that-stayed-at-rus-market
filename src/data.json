@@ -1,0 +1,62 @@
+﻿{
+    "Sheet1": [
+        {
+            "id": "1",
+            "status": "gen_stayed",
+            "img": "https://www.subway.com/-/media/UniversalNav/Logo/Primary/Desktop2x.png",
+            "brand": "brand_subway",
+            "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
+            "country": "country_usa",
+            "category": "category_fastfood",
+            "locations": "locations_subway",
+            "market": "country_antigua, country_agrentina, country_aruba",
+            "proof_url": "https://www.subway.com/pressreleases/supportofukrainianrefugees.pdf",
+            "proof_type": "Official Statement",
+            "proof_explanation": "proof_explanation-subway",
+            "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
+            "alternatives": "brand_mcdonalds",
+            "message": "subway_message"
+        },
+        {
+            "id": "2",
+            "status": "gen_stayed",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Domino%27s_pizza_logo.svg/1200px-Domino%27s_pizza_logo.svg.png",
+            "brand": "brand_dominos-pizza",
+            "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
+            "country": "country_usa",
+            "category": "category_fastfood",
+            "locations": "locations_dominos-pizza",
+            "market": "country_ antigua, country_ agrentina, country_aruba",
+            "proof_url": "https://www.subway.com/pressreleases/supportofukrainianrefugees.pdf",
+            "proof_type": "Official Statement",
+            "proof_explanation": "proof_explanation-subway",
+            "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
+            "alternatives": "brand_mcdonalds",
+            "message": "dominos-pizza_message"
+        },
+        {
+            "id": "3"
+        },
+        {
+            "id": "4"
+        },
+        {
+            "id": "5"
+        },
+        {
+            "id": "6"
+        },
+        {
+            "id": "7"
+        },
+        {
+            "id": "8"
+        },
+        {
+            "id": "9"
+        },
+        {
+            "id": "10"
+        }
+    ]
+}

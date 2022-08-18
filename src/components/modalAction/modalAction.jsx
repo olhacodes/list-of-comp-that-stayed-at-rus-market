@@ -1,51 +1,86 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import React, {useContext} from 'react';
 
-import {ProjectContext} from '../../context/context';
+import { withStyles } from '@material-ui/core/styles';
+import {Button, Dialog, IconButton, Typography} from '@material-ui/core';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import CloseIcon from '@material-ui/icons/Close';
 
-const useStyles = makeStyles((theme) => ({
-    modal: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'transparent!important'
+import {ProjectContext} from "../../context/context";
+
+import './modal-action.css';
+
+const styles = (theme) => ({
+    root: {
+        margin: 0,
+        padding: theme.spacing(2),
     },
-    paper: {
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[1],
-        padding: theme.spacing(2, 4, 3),
+    closeButton: {
+        position: 'absolute',
+        right: theme.spacing(1),
+        top: theme.spacing(1),
+        color: theme.palette.grey[500],
     },
-}));
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+    const { children, classes, onClose, ...other } = props;
+    return (
+        <MuiDialogTitle disableTypography className={classes.root} {...other}>
+            <Typography variant="h6">{children}</Typography>
+            {onClose ? (
+                <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+                    <CloseIcon />
+                </IconButton>
+            ) : null}
+        </MuiDialogTitle>
+    );
+});
+
+const DialogContent = withStyles((theme) => ({
+    root: {
+        padding: theme.spacing(2),
+    },
+}))(MuiDialogContent);
+
+const DialogActions = withStyles((theme) => ({
+    root: {
+        margin: 0,
+        padding: theme.spacing(1),
+    },
+}))(MuiDialogActions);
 
 export default function ModalAction() {
-    const classes = useStyles();
-    const {openModal, handleCloseModal} = React.useContext(ProjectContext);
+    const {openModal, handleCloseModal} = useContext(ProjectContext);
 
     return (
         <div>
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={classes.modal}
-                open={openModal}
-                onClose={handleCloseModal}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500,
-                }}
-            >
-                <Fade in={openModal}>
-                    <div className={classes.paper}>
-                        <h2 id="transition-modal-title">Transition modal</h2>
-                        <p id="transition-modal-description">react-transition-group animates me.</p>
-                    </div>
-                </Fade>
-            </Modal>
+            <Dialog onClose={handleCloseModal} aria-labelledby="customized-dialog-title" open={openModal}>
+                <DialogTitle id="customized-dialog-title" onClose={handleCloseModal}>
+                    Modal title
+                </DialogTitle>
+                <DialogContent dividers>
+                    <Typography gutterBottom>
+                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+                        in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                    </Typography>
+                    <Typography gutterBottom>
+                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
+                        lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    </Typography>
+                    <Typography gutterBottom>
+                        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
+                        scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
+                        auctor fringilla.
+                    </Typography>
+                </DialogContent>
+                <DialogActions>
+                    <Button autoFocus onClick={handleCloseModal} color="primary">
+                        Save changes
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 }

@@ -9,7 +9,7 @@ import {CardHeader, Chip, Card, CardMedia, CardContent, CardActions,
 import Alert from '@material-ui/lab/Alert';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import ModalAction from "../modalAction";
+import ModalAction from "../modalAction/";
 
 const useStyles = makeStyles((theme) => ({
     root: {

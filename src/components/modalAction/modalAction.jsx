@@ -1,4 +1,6 @@
 import React, {useContext} from 'react';
+import {useTranslation} from 'react-i18next';
+import {TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon} from "react-share";
 
 import { withStyles } from '@material-ui/core/styles';
 import {Button, Dialog, IconButton, Typography} from '@material-ui/core';
@@ -26,6 +28,8 @@ const styles = (theme) => ({
 
 const DialogTitle = withStyles(styles)((props) => {
     const { children, classes, onClose, ...other } = props;
+
+
     return (
         <MuiDialogTitle disableTypography className={classes.root} {...other}>
             <Typography variant="h6">{children}</Typography>
@@ -53,29 +57,31 @@ const DialogActions = withStyles((theme) => ({
 
 export default function ModalAction() {
     const {openModal, handleCloseModal} = useContext(ProjectContext);
+    const {t: translateKey} = useTranslation();
+    const shareUrl = 'https://www.dontfundwar.com/';
+    const title = 'As long as you continue to do business in russia, innocent children and civilians are dying ' +
+        'in Ukraine from the aggressor\'s army. Stop your bloody business, ' +
+        'it is enough to sponsor the war against Ukraine!\n';
 
     return (
         <div>
             <Dialog onClose={handleCloseModal} aria-labelledby="customized-dialog-title" open={openModal}>
                 <DialogTitle id="customized-dialog-title" onClose={handleCloseModal}>
-                    Modal title
+                    {translateKey('gen_modal-title')}
                 </DialogTitle>
                 <DialogContent dividers>
-                    <Typography gutterBottom>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-                        in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                    </Typography>
-                    <Typography gutterBottom>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                        lacus vel augue laoreet rutrum faucibus dolor auctor.
-                    </Typography>
-                    <Typography gutterBottom>
-                        Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-                        scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-                        auctor fringilla.
-                    </Typography>
+                    <Typography gutterBottom>{title}</Typography>
                 </DialogContent>
                 <DialogActions>
+                    <TwitterShareButton
+                        url={shareUrl}
+                        title={title}
+                    >
+                        <TwitterIcon size={32} round />
+                    </TwitterShareButton>
+                    <LinkedinShareButton url={shareUrl} className="Demo__some-network__share-button">
+                        <LinkedinIcon size={32} round />
+                    </LinkedinShareButton>
                     <Button autoFocus onClick={handleCloseModal} color="primary">
                         Save changes
                     </Button>

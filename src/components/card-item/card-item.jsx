@@ -72,7 +72,7 @@ export default function CardItem({imgCountry, country, brand, img, alertMessage,
                     {translateKey('gen_push-company')}
                 </Button>
             </CardActions>
-            <ModalAction/>
+            <ModalAction />
         </Card>
     );
 }

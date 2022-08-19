@@ -3,15 +3,16 @@ import {useTranslation} from 'react-i18next';
 import {TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon} from "react-share";
 
 import { withStyles } from '@material-ui/core/styles';
-import {Button, Dialog, IconButton, Typography} from '@material-ui/core';
+import {Card, CardContent, CardHeader, Dialog, IconButton, Typography} from '@material-ui/core';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
 import CloseIcon from '@material-ui/icons/Close';
 
+import CopyBtn from "../copyBtn";
 import {ProjectContext} from "../../context/context";
 
 import './modal-action.css';
+import Alert from "@material-ui/lab/Alert";
+import CheckIcon from "@material-ui/icons/Check";
 
 const styles = (theme) => ({
     root: {
@@ -42,24 +43,11 @@ const DialogTitle = withStyles(styles)((props) => {
     );
 });
 
-const DialogContent = withStyles((theme) => ({
-    root: {
-        padding: theme.spacing(2),
-    },
-}))(MuiDialogContent);
-
-const DialogActions = withStyles((theme) => ({
-    root: {
-        margin: 0,
-        padding: theme.spacing(1),
-    },
-}))(MuiDialogActions);
-
 export default function ModalAction() {
-    const {openModal, handleCloseModal} = useContext(ProjectContext);
+    const {openModal, handleCloseModal, copied} = useContext(ProjectContext);
     const {t: translateKey} = useTranslation();
     const shareUrl = 'https://www.dontfundwar.com/';
-    const title = 'As long as you continue to do business in russia, innocent children and civilians are dying ' +
+    const message = 'As long as you continue to do business in russia, innocent children and civilians are dying ' +
         'in Ukraine from the aggressor\'s army. Stop your bloody business, ' +
         'it is enough to sponsor the war against Ukraine!\n';
 
@@ -69,23 +57,28 @@ export default function ModalAction() {
                 <DialogTitle id="customized-dialog-title" onClose={handleCloseModal}>
                     {translateKey('gen_modal-title')}
                 </DialogTitle>
-                <DialogContent dividers>
-                    <Typography gutterBottom>{title}</Typography>
-                </DialogContent>
-                <DialogActions>
-                    <TwitterShareButton
-                        url={shareUrl}
-                        title={title}
-                    >
-                        <TwitterIcon size={32} round />
-                    </TwitterShareButton>
-                    <LinkedinShareButton url={shareUrl} className="Demo__some-network__share-button">
-                        <LinkedinIcon size={32} round />
-                    </LinkedinShareButton>
-                    <Button autoFocus onClick={handleCloseModal} color="primary">
-                        Save changes
-                    </Button>
-                </DialogActions>
+                <Card>
+                    <CardContent>
+                        <div className='d-flex'>
+                            <Typography gutterBottom>{message}</Typography>
+                            <CopyBtn value={message}/>
+                        </div>
+                        <div className="d-flex justify-content-between">
+                            <TwitterShareButton
+                                url={shareUrl}
+                                title={message}
+                            >
+                                <TwitterIcon size={32} round />
+                            </TwitterShareButton>
+                            <LinkedinShareButton url={shareUrl} className="Demo__some-network__share-button">
+                                <LinkedinIcon className='mx-1' size={32} round />
+                            </LinkedinShareButton>
+                            {copied ? <Alert className='flex-grow-1' icon={<CheckIcon fontSize="inherit" />} severity="success">
+                                {translateKey('gen_copied')}
+                            </Alert> : null}
+                        </div>
+                    </CardContent>
+                </Card>
             </Dialog>
         </div>
     );

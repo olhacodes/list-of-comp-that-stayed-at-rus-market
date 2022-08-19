@@ -44,7 +44,7 @@ const DialogTitle = withStyles(styles)((props) => {
 });
 
 export default function ModalAction() {
-    const {openModal, handleCloseModal, copied} = useContext(ProjectContext);
+    const {openModal, handleCloseModal, copied, setCopied} = useContext(ProjectContext);
     const {t: translateKey} = useTranslation();
     const shareUrl = 'https://www.dontfundwar.com/';
     const message = 'As long as you continue to do business in russia, innocent children and civilians are dying ' +
@@ -54,7 +54,7 @@ export default function ModalAction() {
     return (
         <div>
             <Dialog onClose={handleCloseModal} aria-labelledby="customized-dialog-title" open={openModal}>
-                <DialogTitle id="customized-dialog-title" onClose={handleCloseModal}>
+                <DialogTitle id="customized-dialog-title" onClick={() => setCopied(false)} onClose={handleCloseModal}>
                     {translateKey('gen_modal-title')}
                 </DialogTitle>
                 <Card>

@@ -17,16 +17,12 @@ export const ProjectProvider = ({children}) => {
         setOpenModal(id);
     };
 
-    const handleCloseModal = () => {
-        setOpenModal(null);
-    };
-
     const value = {
         currentLanguageCode,
         changeLanguage,
         openModal,
+        setOpenModal,
         handleOpenModal,
-        handleCloseModal,
         copied,
         setCopied
     }

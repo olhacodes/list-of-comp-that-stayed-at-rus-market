@@ -44,8 +44,9 @@ const DialogTitle = withStyles(styles)((props) => {
 });
 
 export default function ModalAction({brand}) {
-    const {openModal, handleCloseModal, copied, setCopied} = useContext(ProjectContext);
+    const {openModal, setOpenModal, copied, setCopied} = useContext(ProjectContext);
     const {t: translateKey} = useTranslation();
+
     const shareUrl = 'https://www.dontfundwar.com/';
     const message = 'As long as you continue to do business in russia, innocent children and civilians are dying ' +
         'in Ukraine from the aggressor\'s army. Stop your bloody business, ' +
@@ -55,17 +56,17 @@ export default function ModalAction({brand}) {
 
     return (
         <div>
-            <Dialog onClose={handleCloseModal} aria-labelledby="customized-dialog-title" open={openModal}>
-                <DialogTitle id="customized-dialog-title" onClick={() => setCopied(false)} onClose={handleCloseModal}>
+            <Dialog onClose={() => setOpenModal(null)} aria-labelledby="customized-dialog-title" open={openModal}>
+                <DialogTitle id="customized-dialog-title" onClick={() => setCopied(false)} onClose={() => setOpenModal(null)}>
                     {translateKey('gen_modal-title')}
                 </DialogTitle>
                 <Card>
                     <CardContent>
-                        <div className='d-flex'>
+                        <div className='d-flex flex-wrap-reverse justify-content-end'>
                             <Typography gutterBottom>{finalMessage}</Typography>
                             <CopyBtn value={finalMessage}/>
                         </div>
-                        <div className="d-flex justify-content-between">
+                        <div className="d-flex">
                             <TwitterShareButton
                                 url={shareUrl}
                                 title={finalMessage}

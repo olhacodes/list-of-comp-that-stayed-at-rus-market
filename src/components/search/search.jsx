@@ -15,7 +15,7 @@ const Search = ({setInputValue}) => {
     const classes = useStyles();
 
     return (
-        <form className="container d-flex mb-3">
+        <form className="d-flex mb-3 border-bottom">
             <InputBase
                 onChange={setInputValue}
                 className={classes.input}

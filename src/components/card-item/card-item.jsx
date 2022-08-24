@@ -14,6 +14,7 @@ import ModalAction from "../modalAction/";
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '30%',
+        minWidth: '200px',
     },
     media: {
         height: 0,
@@ -26,8 +27,11 @@ const useStyles = makeStyles((theme) => ({
             duration: theme.transitions.duration.shortest,
         }),
     },
-    expandOpen: {
-        transform: 'rotate(180deg)',
+    cardActions: {
+        justifyContent: 'end',
+    },
+    alert: {
+        marginTop: '1rem',
     }
 }));
 
@@ -60,10 +64,10 @@ export default function CardItem({id, imgCountry, country, brand, img, alertMess
                     {translateKey(proof_explanation)}
                 </Typography>
                 {alertMessage ? (
-                    <Alert severity="error">{translateKey(alertMessage)}</Alert>)
+                    <Alert className={classes.alert} severity="error">{translateKey(alertMessage)}</Alert>)
                     : null}
             </CardContent>
-            <CardActions disableSpacing>
+            <CardActions disableSpacing className={classes.cardActions}>
                 <Chip label={translateKey(category)} />
                 <IconButton aria-label="share">
                     <Link target="_blank" href={proof_url}><ShareIcon /></Link>

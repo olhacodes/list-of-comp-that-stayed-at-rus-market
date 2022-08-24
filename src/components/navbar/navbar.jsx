@@ -15,7 +15,7 @@ const Navbar = () => {
     const localeDonateLink = `https://savelife.in.ua/${currentLanguageCode === 'en' ? currentLanguageCode + '/' : ''}`;
 
     return ( 
-        <div className="container">
+        <div>
             <Locallization/>
             <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                 <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">

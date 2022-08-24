@@ -53,7 +53,7 @@ export default function CardItem({imgCountry, country, brand, img, alertMessage,
             <CardMedia
                 className={classes.media}
                 image={img}
-                title={translateKey(brand)}
+                title={brand}
             />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">

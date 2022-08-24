@@ -21,7 +21,7 @@
             "img": "https://pbs.twimg.com/media/FV3zkZfUcAEkFiy.jpg",
             "brand": "Dominos pizza",
             "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
-            "country": "country_usa",
+            "country": "country_uk",
             "category": "category_fastfood",
             "market": "country_ antigua, country_ agrentina, country_aruba",
             "proof_url": "https://www.subway.com/pressreleases/supportofukrainianrefugees.pdf",
@@ -29,30 +29,6 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "dominos-pizza_alertMessage"
-        },
-        {
-            "id": "3"
-        },
-        {
-            "id": "4"
-        },
-        {
-            "id": "5"
-        },
-        {
-            "id": "6"
-        },
-        {
-            "id": "7"
-        },
-        {
-            "id": "8"
-        },
-        {
-            "id": "9"
-        },
-        {
-            "id": "10"
         }
     ]
 }

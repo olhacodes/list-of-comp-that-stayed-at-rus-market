@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 import {TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon} from "react-share";
 
 import { withStyles } from '@material-ui/core/styles';
-import {Card, CardContent, CardHeader, Dialog, IconButton, Typography} from '@material-ui/core';
+import {Card, CardContent, Dialog, IconButton, Typography} from '@material-ui/core';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -43,13 +43,15 @@ const DialogTitle = withStyles(styles)((props) => {
     );
 });
 
-export default function ModalAction() {
+export default function ModalAction({brand}) {
     const {openModal, handleCloseModal, copied, setCopied} = useContext(ProjectContext);
     const {t: translateKey} = useTranslation();
     const shareUrl = 'https://www.dontfundwar.com/';
     const message = 'As long as you continue to do business in russia, innocent children and civilians are dying ' +
         'in Ukraine from the aggressor\'s army. Stop your bloody business, ' +
-        'it is enough to sponsor the war against Ukraine!\n';
+        'it\'s enough to sponsor the war against Ukraine!\n';
+    const hashtags = `#${brand.split(' ').join('')}StopFundTheWar #RussiaIsATerroristState`;
+    const finalMessage = message + hashtags;
 
     return (
         <div>
@@ -60,13 +62,13 @@ export default function ModalAction() {
                 <Card>
                     <CardContent>
                         <div className='d-flex'>
-                            <Typography gutterBottom>{message}</Typography>
-                            <CopyBtn value={message}/>
+                            <Typography gutterBottom>{finalMessage}</Typography>
+                            <CopyBtn value={finalMessage}/>
                         </div>
                         <div className="d-flex justify-content-between">
                             <TwitterShareButton
                                 url={shareUrl}
-                                title={message}
+                                title={finalMessage}
                             >
                                 <TwitterIcon size={32} round />
                             </TwitterShareButton>

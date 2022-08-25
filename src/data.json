@@ -4,7 +4,7 @@
             "id": "1",
             "status": "gen_stayed",
             "img": "https://order.subway.com/en-us/-/media/northamerica/Shared-Content/US_W3_Catering_HP_50_50_640x640.png?la=en-US&h=640&w=640&mw=0&hash=0F438B658A45A0FC511BB106CAB87663",
-            "brand": "Subway",
+            "company": "Subway",
             "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
             "country": "country_usa",
             "category": "category_fastfood",
@@ -19,7 +19,7 @@
             "id": "2",
             "status": "gen_stayed",
             "img": "https://pbs.twimg.com/media/FV3zkZfUcAEkFiy.jpg",
-            "brand": "Dominos Pizza",
+            "company": "Dominos Pizza",
             "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
             "country": "country_usa",
             "category": "category_fastfood",
@@ -29,6 +29,38 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "dominos-pizza_alertMessage"
+        },
+        {
+            "id": "3",
+            "status": "gen_stayed",
+            "img": "https://images.ctfassets.net/oggad6svuzkv/pEs8SZ1cYvY5WH1RypCcN/28bfbda42479ea77f9a7dc359c871a5d/06_portfolio-baby-care-category.png",
+            "company": "P&G",
+            "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
+            "country": "country_usa",
+            "category": "category_baby-care",
+            "market": "country_ antigua, country_ agrentina, country_aruba",
+            "proof_url": "https://us.pg.com/blogs/pg-european-operations-update/",
+            "proof_explanation": "proof_explanation-P&G",
+            "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
+            "alternatives": "brand_mcdonalds",
+            "alertMessage": "P&G_alertMessage",
+            "brand": "Pampers"
+        },
+        {
+            "id": "4",
+            "status": "gen_stayed",
+            "img": "https://images.ctfassets.net/oggad6svuzkv/3G0dEcKuChzOPRKdxakCw2/6af488bdcf3c30826dec8e2b8c2049c3/06_portfolio-fabric-care-category.png",
+            "company": "P&G",
+            "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
+            "country": "country_usa",
+            "category": "category_fabric-care",
+            "market": "country_ antigua, country_ agrentina, country_aruba",
+            "proof_url": "https://us.pg.com/blogs/pg-european-operations-update/",
+            "proof_explanation": "proof_explanation-P&G",
+            "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
+            "alternatives": "brand_mcdonalds",
+            "alertMessage": "P&G_alertMessage",
+            "brand": "Tide"
         }
     ]
 }

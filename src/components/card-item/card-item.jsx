@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {useTranslation} from 'react-i18next';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function CardItem({id, imgCountry, country, brand, img, alertMessage,proof_url, proof_explanation, category}) {
+export default function CardItem({id, imgCountry, brand, country, company, img, alertMessage,proof_url, proof_explanation, category}) {
     const {t: translateKey} = useTranslation();
     const {handleOpenModal, openModal} = useContext(ProjectContext);
     const classes = useStyles();
@@ -51,13 +51,13 @@ export default function CardItem({id, imgCountry, country, brand, img, alertMess
                         <MoreVertIcon />
                     </IconButton>
                 }
-                title={brand}
+                title={company}
                 subheader={translateKey(country)}
             />
             <CardMedia
                 className={classes.media}
                 image={img}
-                title={brand}
+                title={company}
             />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
@@ -77,7 +77,7 @@ export default function CardItem({id, imgCountry, country, brand, img, alertMess
                 </Button>
             </CardActions>
             {id === openModal ? (
-                <ModalAction brand={brand}/>
+                <ModalAction company={company} brand={brand}/>
             ): null}
         </Card>
     );

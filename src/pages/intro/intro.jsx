@@ -14,7 +14,7 @@ const Intro = () => {
     }
 
     const filteredData = data.Sheet1.filter(card => {
-        const company = card.brand.toLowerCase().includes(inputSearch.toLowerCase());
+        const company = card.company.toLowerCase().includes(inputSearch.toLowerCase());
         const country = card.country.toLowerCase().includes(inputSearch.toLowerCase());
         if(inputSearch == '') {
             return card

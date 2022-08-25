@@ -1,18 +1,18 @@
 import React, {useContext} from 'react';
 import {useTranslation} from 'react-i18next';
-import {TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon} from "react-share";
 
+import {TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon} from "react-share";
 import { withStyles } from '@material-ui/core/styles';
 import {Card, CardContent, Dialog, IconButton, Typography} from '@material-ui/core';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import CloseIcon from '@material-ui/icons/Close';
+import Alert from "@material-ui/lab/Alert";
+import CheckIcon from "@material-ui/icons/Check";
 
 import CopyBtn from "../copyBtn";
 import {ProjectContext} from "../../context/context";
 
 import './modal-action.css';
-import Alert from "@material-ui/lab/Alert";
-import CheckIcon from "@material-ui/icons/Check";
 
 const styles = (theme) => ({
     root: {
@@ -25,14 +25,17 @@ const styles = (theme) => ({
         top: theme.spacing(1),
         color: theme.palette.grey[500],
     },
+    hashtags: {
+        color: '#00aced',
+        justifyContent: 'start'
+    },
 });
 
 const DialogTitle = withStyles(styles)((props) => {
-    const { children, classes, onClose, ...other } = props;
-
+    const { children, classes, onClose } = props;
 
     return (
-        <MuiDialogTitle disableTypography className={classes.root} {...other}>
+        <MuiDialogTitle disableTypography className={classes.root}>
             <Typography variant="h6">{children}</Typography>
             {onClose ? (
                 <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
@@ -43,7 +46,7 @@ const DialogTitle = withStyles(styles)((props) => {
     );
 });
 
-export default function ModalAction({brand}) {
+const ModalAction = withStyles(styles)(({company, brand, classes}) => {
     const {openModal, setOpenModal, copied, setCopied} = useContext(ProjectContext);
     const {t: translateKey} = useTranslation();
 
@@ -51,8 +54,7 @@ export default function ModalAction({brand}) {
     const message = 'As long as you continue to do business in russia, innocent children and civilians are dying ' +
         'in Ukraine from the aggressor\'s army. Stop your bloody business, ' +
         'it\'s enough to sponsor the war against Ukraine!\n';
-    const hashtags = `#${brand.split(' ').join('')}StopFundTheWar #RussiaIsATerroristState`;
-    const finalMessage = message + hashtags;
+    const hashtags = `#${company.split(' ').join('')}StopFundTheWar ${brand ? `#Ban${brand}` : null} #RussiaIsATerroristState`;
 
     return (
         <div>
@@ -62,14 +64,15 @@ export default function ModalAction({brand}) {
                 </DialogTitle>
                 <Card>
                     <CardContent>
-                        <div className='d-flex flex-wrap-reverse justify-content-end'>
-                            <Typography gutterBottom>{finalMessage}</Typography>
-                            <CopyBtn value={finalMessage}/>
+                        <div className='d-flex flex-column'>
+                            <CopyBtn value={message}/>
+                            <Typography gutterBottom>{message}</Typography>
+                            <Typography className={classes.hashtags} gutterBottom>{hashtags}</Typography>
                         </div>
                         <div className="d-flex">
                             <TwitterShareButton
                                 url={shareUrl}
-                                title={finalMessage}
+                                title={message}
                             >
                                 <TwitterIcon size={32} round />
                             </TwitterShareButton>
@@ -85,4 +88,6 @@ export default function ModalAction({brand}) {
             </Dialog>
         </div>
     );
-}
+});
+
+export default ModalAction;

@@ -11,7 +11,7 @@ const CopyBtn = ({value}) => {
 
     return (
         <>
-            <CopyToClipboard text={value} onCopy={() => setCopied(true)}>
+            <CopyToClipboard className='justify-content-end' text={value} onCopy={() => setCopied(true)}>
                 <IconButton>
                     <FileCopyIcon color="primary"/>
                 </IconButton>

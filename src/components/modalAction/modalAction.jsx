@@ -29,6 +29,9 @@ const styles = (theme) => ({
         color: '#00aced',
         justifyContent: 'start'
     },
+    copyBtn: {
+        position: 'absolute',
+    }
 });
 
 const DialogTitle = withStyles(styles)((props) => {
@@ -47,24 +50,24 @@ const DialogTitle = withStyles(styles)((props) => {
 });
 
 const ModalAction = withStyles(styles)(({company, brand, classes}) => {
-    const {openModal, setOpenModal, copied, setCopied} = useContext(ProjectContext);
+    const {openModal, copied, setCopied, handleCloseModal} = useContext(ProjectContext);
     const {t: translateKey} = useTranslation();
 
     const shareUrl = 'https://www.dontfundwar.com/';
     const message = 'As long as you continue to do business in russia, innocent children and civilians are dying ' +
         'in Ukraine from the aggressor\'s army. Stop your bloody business, ' +
         'it\'s enough to sponsor the war against Ukraine!\n';
-    const hashtags = `#${company.split(' ').join('')}StopFundTheWar ${brand ? `#Ban${brand}` : null} #RussiaIsATerroristState`;
+    const hashtags = `#${company.split(' ').join('')}StopFundTheWar ${brand ? `#Ban${brand}` : ''} #RussiaIsATerroristState`;
 
     return (
         <div>
-            <Dialog onClose={() => setOpenModal(null)} aria-labelledby="customized-dialog-title" open={openModal}>
-                <DialogTitle id="customized-dialog-title" onClick={() => setCopied(false)} onClose={() => setOpenModal(null)}>
+            <Dialog onClose={handleCloseModal} open={openModal}>
+                <DialogTitle id="customized-dialog-title" onClick={() => setCopied(false)} onClose={handleCloseModal}>
                     {translateKey('gen_modal-title')}
                 </DialogTitle>
                 <Card>
                     <CardContent>
-                        <div className='d-flex flex-column'>
+                        <div className='modal__text d-flex flex-column'>
                             <CopyBtn value={message}/>
                             <Typography gutterBottom>{message}</Typography>
                             <Typography className={classes.hashtags} gutterBottom>{hashtags}</Typography>

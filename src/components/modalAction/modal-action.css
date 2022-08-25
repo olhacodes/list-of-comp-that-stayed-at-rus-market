@@ -5,3 +5,7 @@
 .MuiPaper-elevation24 {
   box-shadow: none!important;
 }
+
+.modal__text {
+  position: relative;
+}

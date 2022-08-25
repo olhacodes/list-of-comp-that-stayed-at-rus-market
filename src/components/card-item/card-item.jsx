@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {ProjectContext} from '../../context/context';
 
 import {CardHeader, Chip, Card, CardMedia, CardContent, CardActions,
-    Avatar, IconButton, Typography, Link, Button} from '@material-ui/core';
+    Avatar, IconButton, Link, Button} from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function CardItem({id, imgCountry, brand, country, company, img, alertMessage,proof_url, proof_explanation, category}) {
+export default function CardItem({id, imgCountry, brand, country, company, img, alertMessage,proof_url, category}) {
     const {t: translateKey} = useTranslation();
     const {handleOpenModal, openModal} = useContext(ProjectContext);
     const classes = useStyles();
@@ -60,9 +60,6 @@ export default function CardItem({id, imgCountry, brand, country, company, img, 
                 title={company}
             />
             <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    {translateKey(proof_explanation)}
-                </Typography>
                 {alertMessage ? (
                     <Alert className={classes.alert} severity="error">{translateKey(alertMessage)}</Alert>)
                     : null}

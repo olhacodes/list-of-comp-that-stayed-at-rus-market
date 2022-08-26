@@ -20,6 +20,7 @@ const styles = () => ({
     },
     copyBtn: {
         position: 'absolute',
+        bottom: 0,
     }
 });
 
@@ -55,7 +56,7 @@ const ModalAction = withStyles(styles)(({company, brand_hashtag, classes,
                             >
                                 <TwitterIcon size={32} round />
                             </TwitterShareButton>
-                            <LinkedinShareButton url={shareUrl} className="Demo__some-network__share-button">
+                            <LinkedinShareButton url={shareUrl}>
                                 <LinkedinIcon className='mx-1' size={32} round />
                             </LinkedinShareButton>
                             {copied ? <Alert className='flex-grow-1' icon={<CheckIcon fontSize="inherit" />} severity="success">

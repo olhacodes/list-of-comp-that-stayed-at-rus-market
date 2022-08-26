@@ -16,9 +16,10 @@ const Intro = () => {
     const filteredData = data.Sheet1.filter(card => {
         const company = card.company.toLowerCase().includes(inputSearch.toLowerCase());
         const country = card.country.toLowerCase().includes(inputSearch.toLowerCase());
+        const brands = card.brands.toLowerCase().includes(inputSearch.toLowerCase())
         if(inputSearch == '') {
             return card
-        }else if(company || country) {
+        }else if(country || company || brands) {
             return card
         }
     })

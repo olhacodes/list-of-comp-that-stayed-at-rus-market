@@ -10,8 +10,10 @@
             "category": "category_fastfood",
             "proof_url": "https://www.subway.com/pressreleases/supportofukrainianrefugees.pdf",
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
-            "alternatives": "brand_mcdonalds, brand-2",
-            "alertMessage": "subway_alertMessage"
+            "alternatives": "brand_mcdonalds",
+            "alertMessage": "subway_alertMessage",
+            "brand_hashtag": "Subway",
+            "brands": "subway"
         },
         {
             "id": "2",
@@ -25,7 +27,9 @@
             "proof_url": "https://www.subway.com/pressreleases/supportofukrainianrefugees.pdf",
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
-            "alertMessage": "dominos-pizza_alertMessage"
+            "alertMessage": "dominos-pizza_alertMessage",
+            "brand_hashtag": "Dominos",
+            "brands": "Dominos Pizza"
         },
         {
             "id": "3",
@@ -40,7 +44,8 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "P&G_alertMessage",
-            "brand": "Pampers"
+            "brand_hashtag": "Pampers",
+            "brands": "All Good, Charlie Banana, Luvs, Pampers"
         },
         {
             "id": "4",
@@ -55,7 +60,8 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "P&G_alertMessage",
-            "brand": "Tide"
+            "brand_hashtag": "Tide",
+            "brands": "Ariel, Bounce, Cheer, Downy, Dreft, Era, Gain, Rindex 3en1, Tide"
         },
         {
             "id": "5",
@@ -70,7 +76,8 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "P&G_alertMessage",
-            "brand": "AlwaysDiscreet"
+            "brand_hashtag": "AlwaysDiscreet",
+            "brands": "Always, Always Discreet, Just, Tampax, This is L"
         },
         {
             "id": "6",
@@ -85,7 +92,8 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "P&G_alertMessage",
-            "brand": "Gillette"
+            "brand_hashtag": "Gillette",
+            "brands": "Braun, Gillette, joy+glee, Venus, The Art of Shaving"
         },
         {
             "id": "7",
@@ -100,7 +108,8 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "P&G_alertMessage",
-            "brand": "Pantene"
+            "brand_hashtag": "Pantene",
+            "brands": "Aussie, Head & Shoulders, Herbal Essences, My Black Is Beautiful, Old Spice, Pantene"
         },
         {
             "id": "8",
@@ -115,7 +124,8 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "P&G_alertMessage",
-            "brand": "Mr.Clean"
+            "brand_hashtag": "Mr.Clean",
+            "brands": "Ambi Pur, Cascade, Dawn, Febreze, Gain, Microban 24, Mr. Clean, Salvo, Swiffer, Zevo"
         },
         {
             "id": "9",
@@ -130,7 +140,8 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "P&G_alertMessage",
-            "brand": "Oral-B"
+            "brand_hashtag": "Oral-B",
+            "brands": "Oral-B, Crest, Fixodent, Scope"
         },
         {
             "id": "10",
@@ -145,7 +156,8 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "P&G_alertMessage",
-            "brand": "NyQuil"
+            "brand_hashtag": "NyQuil",
+            "brands": "Align, Clearblue, Meta, Pepto-Bismol, Prilosec OTC, Vicks, ZzzQuil"
         },
         {
             "id": "11",
@@ -160,7 +172,24 @@
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
             "alternatives": "brand_mcdonalds",
             "alertMessage": "P&G_alertMessage",
-            "brand": "Safeguard"
+            "brand_hashtag": "Safeguard",
+            "brands": "Gillette, Safeguard, Old Spice, Olay, Secret, Snowberry, SK-II, Ivory, Native"
+        },
+        {
+            "id": "12",
+            "status": "gen_stayed",
+            "img": "https://tbcdn.talentbrew.com/company/936/v2_0/img/about/1_1_7/product-familycare.jpg",
+            "company": "P&G",
+            "imgCountry": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Flag_of_the_United_States_%28Pantone%29.svg/640px-Flag_of_the_United_States_%28Pantone%29.svg.png",
+            "country": "country_usa",
+            "category": "category_paper",
+            "market": "country_ antigua, country_ agrentina, country_aruba",
+            "proof_url": "https://us.pg.com/blogs/pg-european-operations-update/",
+            "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
+            "alternatives": "brand_mcdonalds",
+            "alertMessage": "P&G_alertMessage",
+            "brand_hashtag": "Charmin",
+            "brands": "Bounty, Charmin, Puffs"
         }
     ]
 }

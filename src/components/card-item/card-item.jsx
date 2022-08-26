@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function CardItem({id, imgCountry, brand, country, company, img, alertMessage,
+export default function CardItem({id, imgCountry, brand_hashtag, country, company, img, alertMessage,
                                      proof_url, category, alternatives_img, alternatives}) {
     const {t: translateKey} = useTranslation();
     const {handleOpenModal, openModal, modalComponent} = useContext(ProjectContext);
@@ -84,7 +84,7 @@ export default function CardItem({id, imgCountry, brand, country, company, img, 
             </CardActions>
             {id === openModal ? (
                 <ModalAction company={company}
-                             brand={brand}
+                             brand_hashtag={brand_hashtag}
                              modalComponent={modalComponent}
                              alternatives_img={alternatives_img}
                              alternatives={alternatives}

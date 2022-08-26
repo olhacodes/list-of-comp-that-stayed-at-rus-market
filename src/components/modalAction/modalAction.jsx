@@ -23,7 +23,7 @@ const styles = () => ({
     }
 });
 
-const ModalAction = withStyles(styles)(({company, brand, classes,
+const ModalAction = withStyles(styles)(({company, brand_hashtag, classes,
                                             modalComponent, alternatives_img, alternatives, id}) => {
     const {openModal, copied, setCopied, handleCloseModal, handleOpenModal} = useContext(ProjectContext);
     const {t: translateKey} = useTranslation();
@@ -32,7 +32,7 @@ const ModalAction = withStyles(styles)(({company, brand, classes,
     const message = 'As long as you continue to do business in russia, innocent children and civilians are dying ' +
         'in Ukraine from the aggressor\'s army. Stop your bloody business, ' +
         'it\'s enough to sponsor the war against Ukraine!\n';
-    const hashtags = `#${company.split(' ').join('')}StopFundTheWar ${brand ? `#Ban${brand}` : ''} #RussiaIsATerroristState`;
+    const hashtags = `#${company.split(' ').join('')}StopFundTheWar ${brand_hashtag ? `#Ban${brand_hashtag}` : ''} #RussiaIsATerroristState`;
 
     return (
         <Dialog onClose={handleCloseModal} open={openModal} fullWidth={true}>

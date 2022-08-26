@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 0,
         paddingTop: '56.25%',
+        cursor: 'pointer'
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -35,9 +36,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function CardItem({id, imgCountry, brand, country, company, img, alertMessage,proof_url, category}) {
+export default function CardItem({id, imgCountry, brand, country, company, img, alertMessage,
+                                     proof_url, category, alternatives_img, alternatives}) {
     const {t: translateKey} = useTranslation();
-    const {handleOpenModal, openModal} = useContext(ProjectContext);
+    const {handleOpenModal, openModal, modalComponent} = useContext(ProjectContext);
     const classes = useStyles();
 
     return (
@@ -58,6 +60,10 @@ export default function CardItem({id, imgCountry, brand, country, company, img, 
                 className={classes.media}
                 image={img}
                 title={company}
+                onClick={() => {
+                    handleOpenModal(id, 'modal-action')
+                }}
+
             />
             <CardContent>
                 {alertMessage ? (
@@ -69,12 +75,20 @@ export default function CardItem({id, imgCountry, brand, country, company, img, 
                 <IconButton aria-label="share">
                     <Link target="_blank" href={proof_url}><ShareIcon /></Link>
                 </IconButton>
-                <Button variant="outlined" color="primary" onClick={() => handleOpenModal(id)}>
-                    {translateKey('gen_push-company')}
+                <Button variant="outlined" color="primary"
+                        onClick={() => {
+                            handleOpenModal(id, 'modal-alternatives')
+                        }}>
+                    {translateKey('gen_alternatives')}
                 </Button>
             </CardActions>
             {id === openModal ? (
-                <ModalAction company={company} brand={brand}/>
+                <ModalAction company={company}
+                             brand={brand}
+                             modalComponent={modalComponent}
+                             alternatives_img={alternatives_img}
+                             alternatives={alternatives}
+                             handleOpenModal={handleOpenModal} id={id}/>
             ): null}
         </Card>
     );

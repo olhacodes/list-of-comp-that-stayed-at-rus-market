@@ -26,7 +26,7 @@ const Intro = () => {
     return (
         <div className="intro">
             <Search setInputValue={setInputValue}/>
-            <div className="intro__cards d-flex flex-row-reverse gap-3 flex-wrap align-content-stretch mt-5">
+            <div className="intro__cards d-flex flex-row gap-3 flex-wrap align-content-stretch mt-5">
                 {filteredData.map(item => (
                     <CardItem key={item.id} {...item}/>
                 ))}

@@ -8,9 +8,9 @@
   "category_fastfood": "фаст-фуд",
   "subway_alertMessage": "450 франчайзингових ресторанів в росії",
   "dominos-pizza_alertMessage": "188 франчайзингових локацій в Росії",
-  "gen_push-company": "Вплинути на компанію",
   "gen_search": "Пошук за брендом, компанією, країною",
-  "gen_modal-title": "Нагадайте компанії не фінансувати війну в соціальних мережах",
+  "gen_alternatives": "Альтернативи",
+  "gen_modal-title-actions": "Нагадайте компанії не фінансувати війну в соціальних мережах",
   "gen_copied": "Повідомлення скопійовано",
   "category_baby-care": "Дитячий догляд",
   "P&G_alertMessage": "$76 млрд. доходу. Більш ніж 5000 працівників",
@@ -22,5 +22,7 @@
   "category_home-care": "Миючі засоби",
   "category_oral-care": "Догляд за зубами",
   "category_skin-care": "Догляд за шкірою",
-  "category_medicine": "Медицина"
+  "category_medicine": "Медицина",
+  "gen_modal-title-alternatives": "Альтернативні бренди, які не підтримують економіку росії",
+  "gen_modal-alternative-text": "Попроси не підтримувати економіку росії"
 }

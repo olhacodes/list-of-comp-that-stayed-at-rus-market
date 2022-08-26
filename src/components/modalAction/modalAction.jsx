@@ -3,28 +3,17 @@ import {useTranslation} from 'react-i18next';
 
 import {TwitterShareButton, TwitterIcon, LinkedinShareButton, LinkedinIcon} from "react-share";
 import { withStyles } from '@material-ui/core/styles';
-import {Card, CardContent, Dialog, IconButton, Typography} from '@material-ui/core';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import CloseIcon from '@material-ui/icons/Close';
+import {Card, CardContent, Dialog, Typography, CardMedia, Button} from '@material-ui/core';
 import Alert from "@material-ui/lab/Alert";
 import CheckIcon from "@material-ui/icons/Check";
 
 import CopyBtn from "../copyBtn";
+import DialogTitle from '../dialog-title';
 import {ProjectContext} from "../../context/context";
 
 import './modal-action.css';
 
-const styles = (theme) => ({
-    root: {
-        margin: 0,
-        padding: theme.spacing(2),
-    },
-    closeButton: {
-        position: 'absolute',
-        right: theme.spacing(1),
-        top: theme.spacing(1),
-        color: theme.palette.grey[500],
-    },
+const styles = () => ({
     hashtags: {
         color: '#00aced',
         justifyContent: 'start'
@@ -34,23 +23,9 @@ const styles = (theme) => ({
     }
 });
 
-const DialogTitle = withStyles(styles)((props) => {
-    const { children, classes, onClose } = props;
-
-    return (
-        <MuiDialogTitle disableTypography className={classes.root}>
-            <Typography variant="h6">{children}</Typography>
-            {onClose ? (
-                <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-                    <CloseIcon />
-                </IconButton>
-            ) : null}
-        </MuiDialogTitle>
-    );
-});
-
-const ModalAction = withStyles(styles)(({company, brand, classes}) => {
-    const {openModal, copied, setCopied, handleCloseModal} = useContext(ProjectContext);
+const ModalAction = withStyles(styles)(({company, brand, classes,
+                                            modalComponent, alternatives_img, alternatives, id}) => {
+    const {openModal, copied, setCopied, handleCloseModal, handleOpenModal} = useContext(ProjectContext);
     const {t: translateKey} = useTranslation();
 
     const shareUrl = 'https://www.dontfundwar.com/';
@@ -60,22 +35,23 @@ const ModalAction = withStyles(styles)(({company, brand, classes}) => {
     const hashtags = `#${company.split(' ').join('')}StopFundTheWar ${brand ? `#Ban${brand}` : ''} #RussiaIsATerroristState`;
 
     return (
-        <div>
-            <Dialog onClose={handleCloseModal} open={openModal}>
-                <DialogTitle id="customized-dialog-title" onClick={() => setCopied(false)} onClose={handleCloseModal}>
-                    {translateKey('gen_modal-title')}
+        <Dialog onClose={handleCloseModal} open={openModal} fullWidth={true}>
+            {modalComponent === 'modal-action' ? (
+            <>
+                <DialogTitle onClick={() => setCopied(false)} onClose={handleCloseModal}>
+                    {translateKey('gen_modal-title-actions')}
                 </DialogTitle>
                 <Card>
                     <CardContent>
                         <div className='modal__text d-flex flex-column'>
-                            <CopyBtn value={message}/>
+                            <CopyBtn value={message + hashtags}/>
                             <Typography gutterBottom>{message}</Typography>
                             <Typography className={classes.hashtags} gutterBottom>{hashtags}</Typography>
                         </div>
                         <div className="d-flex">
                             <TwitterShareButton
                                 url={shareUrl}
-                                title={message}
+                                title={message+ hashtags}
                             >
                                 <TwitterIcon size={32} round />
                             </TwitterShareButton>
@@ -88,8 +64,35 @@ const ModalAction = withStyles(styles)(({company, brand, classes}) => {
                         </div>
                     </CardContent>
                 </Card>
-            </Dialog>
-        </div>
+            </>
+                ) : (
+                <>
+                    <DialogTitle onClick={() => setCopied(false)} onClose={handleCloseModal}>
+                        {translateKey('gen_modal-title-alternatives')}
+                    </DialogTitle>
+                    <Card>
+                        <CardContent>
+                            <div className='modal__text d-flex flex-column'>
+                                <img className='img-thumbnail w-50' src={alternatives_img} alt={translateKey(alternatives)}/>
+                                <ul className="list-group">
+                                    {alternatives.split(' ').map(altBrand => (
+                                        <li class="list-group-item">{altBrand}</li>
+                                    ))}
+                                </ul>
+                                <Typography>{translateKey('gen_modal-alternative-text')}</Typography>
+                                <Button variant="outlined" color="primary"
+                                        onClick={() => {
+                                            handleOpenModal(id, 'modal-action')
+                                        }}>
+                                    {translateKey('gen_push-company')}
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </>
+
+            )}
+        </Dialog>
     );
 });
 

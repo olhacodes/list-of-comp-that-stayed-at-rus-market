@@ -10,7 +10,7 @@
             "category": "category_fastfood",
             "proof_url": "https://www.subway.com/pressreleases/supportofukrainianrefugees.pdf",
             "alternatives_img": "https://corporate.mcdonalds.com/is/image/content/dam/gwscorp/nfl/newsroom/media_assets/Golden%20Arches.png?$MEDIA_LISTING_IMAGE_DESKTOP$",
-            "alternatives": "brand_mcdonalds",
+            "alternatives": "brand_mcdonalds, brand-2",
             "alertMessage": "subway_alertMessage"
         },
         {

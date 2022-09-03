@@ -2,6 +2,8 @@ import React, {createContext, useState} from 'react';
 import cookies from "js-cookie";
 import i18next from "i18next";
 
+import data from '../data.json';
+
 export const ProjectContext = createContext({});
 
 export const ProjectProvider = ({children}) => {
@@ -9,6 +11,8 @@ export const ProjectProvider = ({children}) => {
     const [openModal, setOpenModal] = useState(null);
     const [copied, setCopied] = useState(false);
     const [modalComponent, setModalComponent] = useState('');
+
+    const companies = data.Sheet1.map(company => company);
 
     const changeLanguage = (code) => {
         setCurrentLanguageCode(i18next.changeLanguage(code))
@@ -34,7 +38,8 @@ export const ProjectProvider = ({children}) => {
         handleCloseModal,
         copied,
         setCopied,
-        modalComponent
+        modalComponent,
+        companies
     }
 
     return (

@@ -23,8 +23,17 @@
   "category_oral-care": "Oral Care",
   "category_skin-care": "Skin care",
   "category_medicine": "Medicine",
-  "gen_modal-title-alternatives": "Alternative brands that don't fund the Russia economic",
+  "gen_modal-title-alternatives": "Alternative brands that left Russia",
   "gen_modal-alternative-text": "Ask don't fund the Russia economic",
   "gen__source": "Source",
-  "gen__share": "Share"
+  "gen__share": "Share",
+  "country_serbia": "Serbia",
+  "airlines_alertMessage": "Still flying to Russia",
+  "category_airline": "Airline",
+  "country_azerbaijan": "Azerbaijan",
+  "country_turkey": "Turkey",
+  "country_egypt": "Egypt",
+  "country_United-Arab-Emirates": "United Arab Emirates",
+  "gen_stayed": "Stayed",
+  "gen_left": "Left"
 }

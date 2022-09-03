@@ -23,8 +23,17 @@
   "category_oral-care": "Догляд за зубами",
   "category_skin-care": "Догляд за шкірою",
   "category_medicine": "Медицина",
-  "gen_modal-title-alternatives": "Альтернативні бренди, які не підтримують економіку росії",
+  "gen_modal-title-alternatives": "Альтернативні бренди, які покинули росію",
   "gen_modal-alternative-text": "Попроси не підтримувати економіку росії",
   "gen__source": "Ресурс",
-  "gen__share": "Поширити"
+  "gen__share": "Поширити",
+  "country_serbia": "Сербія",
+  "airlines_alertMessage": "Досі літають до росії",
+  "category_airline": "Авіакомпанія",
+  "country_azerbaijan": "Азербайджан",
+  "country_turkey": "Турція",
+  "country_egypt": "Єгипет",
+  "country_United-Arab-Emirates": "Об'єднані Арабські Емірати",
+  "gen_stayed": "Залишились",
+  "gen_left": "Покинули"
 }

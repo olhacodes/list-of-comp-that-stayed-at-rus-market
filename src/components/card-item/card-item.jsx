@@ -4,12 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import {ProjectContext} from '../../context/context';
 
-import {CardHeader, Chip, Card, CardMedia, CardContent, CardActions,
-    Avatar, IconButton, Link, Button, Typography} from '@material-ui/core';
+import {
+    CardHeader, Chip, Card, CardMedia, CardContent, CardActions,
+    Avatar, IconButton, Link, Button, Typography
+} from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import ModalAction from "../modalAction/";
 import ShareIcon from '@material-ui/icons/Share';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,17 +32,14 @@ const useStyles = makeStyles((theme) => ({
     chip: {
         position: 'absolute',
         right: '5%',
-        top: '60%',
-    },
-    CardContent: {
-        padding: '0.5rem',
+        top: '55%',
     },
     cardActions: {
         justifyContent: 'end',
         gap: '5%'
     },
     alert: {
-        marginTop: '1rem',
+        marginBottom: '1rem',
         padding: '0.375rem',
     },
     shareIcon: {
@@ -49,10 +47,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function CardItem({id, logo, brand_hashtag, country, company, img, alertMessage,
-                                     proof_url, category, alternatives_img, alternatives, brands}) {
+export default function CardItem({id, logo, country, company, img, alertMessage,
+                                     proof_url, category, alternatives, brands}) {
     const {t: translateKey} = useTranslation();
-    const {handleOpenModal, openModal, modalComponent} = useContext(ProjectContext);
+    const {handleOpenModal} = useContext(ProjectContext);
     const classes = useStyles();
 
     return (
@@ -82,6 +80,9 @@ export default function CardItem({id, logo, brand_hashtag, country, company, img
                 {alertMessage ? (
                     <Alert className={classes.alert} severity="error">{translateKey(alertMessage)}</Alert>)
                     : null}
+                {brands.split(',').length === 1 ? (
+                    null
+                ) : <Typography>{brands}</Typography>}
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions}>
                 <Link onClick={() => handleOpenModal(id, 'modal-action')}
@@ -89,9 +90,11 @@ export default function CardItem({id, logo, brand_hashtag, country, company, img
                     <ShareIcon />
                     {translateKey('gen__share')}
                 </Link>
-                <Link target="_blank" href={proof_url}><AttachFileIcon />
-                    {translateKey('gen__source')}
-                </Link>
+                {proof_url ? (
+                    <Link target="_blank" href={proof_url}><AttachFileIcon />
+                        {translateKey('gen__source')}
+                    </Link>
+                ) : null}
                 {alternatives ? (
                     <Button variant="outlined" color="primary"
                             onClick={() => {
@@ -101,14 +104,6 @@ export default function CardItem({id, logo, brand_hashtag, country, company, img
                     </Button>
                 ) : null}
             </CardActions>
-            {id === openModal ? (
-                <ModalAction company={company}
-                             brand_hashtag={brand_hashtag}
-                             modalComponent={modalComponent}
-                             alternatives_img={alternatives_img}
-                             alternatives={alternatives}
-                             handleOpenModal={handleOpenModal} id={id}/>
-            ): null}
         </Card>
     );
 }

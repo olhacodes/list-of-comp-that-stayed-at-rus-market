@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CardItem({id, logo, country, company, img, alertMessage,
-                                     proof_url, category, alternatives, brands}) {
+                                     proof_url, category, alternatives, brands, status}) {
     const {t: translateKey} = useTranslation();
     const {handleOpenModal} = useContext(ProjectContext);
     const classes = useStyles();
@@ -78,7 +78,7 @@ export default function CardItem({id, logo, country, company, img, alertMessage,
             <Chip label={translateKey(category)} className={classes.chip} />
             <CardContent>
                 {alertMessage ? (
-                    <Alert className={classes.alert} severity="error">{translateKey(alertMessage)}</Alert>)
+                    <Alert className={classes.alert} severity={status === 'stayed' ? 'error' : 'success'}>{translateKey(alertMessage)}</Alert>)
                     : null}
                 {brands.split(',').length === 1 ? (
                     null

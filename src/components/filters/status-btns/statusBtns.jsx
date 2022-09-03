@@ -5,8 +5,8 @@ import {Button} from "@material-ui/core";
 
 const StatusBtns = ({companies}) => {
     const {t: translateKey} = useTranslation();
-    const stayed = companies.filter(company => company.status === 'gen_stayed')
-    const left = companies.filter(company => company.status === 'gen_left')
+    const stayed = companies.filter(company => company.status === 'stayed')
+    const left = companies.filter(company => company.status === 'left')
 
     return (
         <div className="status-btns d-flex gap-3 justify-content-center">

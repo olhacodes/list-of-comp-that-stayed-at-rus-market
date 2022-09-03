@@ -35,5 +35,7 @@
   "country_egypt": "Єгипет",
   "country_United-Arab-Emirates": "Об'єднані Арабські Емірати",
   "gen_stayed": "Залишились",
-  "gen_left": "Покинули"
+  "gen_left": "Покинули",
+  "country_Kazakhstan": "Казахстан",
+  "airlines_alertMessage-left": "Призупинили польоти в Росію"
 }

@@ -13,7 +13,7 @@ export const ProjectProvider = ({children}) => {
 
     const [companies, setCompanies] = useState(companiesFromData);
     const [inputSearch, setInputSearch] = useState('');
-    const [filters, setFilters] = useState({status: 'all'}); // stayed, left, all
+    const [filters, setFilters] = useState({status: 'all', category: 'all'}); // stayed, left, all
 
     const [openModal, setOpenModal] = useState(null);
     const [modalComponent, setModalComponent] = useState('');
@@ -29,9 +29,12 @@ export const ProjectProvider = ({children}) => {
             return companyMatch || countryMatch || brandsMatch
         })
         .filter(card => { // apply filters
-            if (filters.status === 'all') return true;
-            console.log(card.status === filters.status)
-            return card.status === filters.status;
+
+            if (filters.status !== 'all' && card.status !== filters.status) {
+                return false;
+            }
+
+            return true;
         })
 
     const changeLanguage = (code) => {

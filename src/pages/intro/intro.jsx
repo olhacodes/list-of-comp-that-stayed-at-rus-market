@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 
 import Search from "../../components/search";
+import StatusBtns from "../../components/filters/status-btns";
 import CardItem from "../../components/card-item";
 import Modals from "../../components/modals";
 
 import {ProjectContext} from "../../context/context";
-import StatusBtns from "../../components/filters/status-btns";
 
 const Intro = () => {
     const { openModal, setInputValue, filteredCompanies} = useContext(ProjectContext);

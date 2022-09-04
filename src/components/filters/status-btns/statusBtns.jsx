@@ -11,10 +11,13 @@ const StatusBtns = () => {
 
     return (
         <div className="status-btns d-flex gap-3 justify-content-center">
-            <Button variant="outlined" onClick={() => setFilters({...filters, status: 'stayed'})}>
+            <Button variant="outlined" color='primary' onClick={() => setFilters({...filters, status: 'all'})}>
+                {translateKey('gen_all')}
+            </Button>
+            <Button variant="outlined" color='secondary' onClick={() => setFilters({...filters, status: 'stayed'})}>
                 {translateKey('gen_stayed') + " " + stayedCount}
             </Button>
-            <Button variant="outlined" onClick={() => setFilters({...filters, status: 'left'})}>
+            <Button variant="outlined" color='primary' onClick={() => setFilters({...filters, status: 'left'})}>
                 {translateKey('gen_left') + " " + leftCount}
             </Button>
         </div>

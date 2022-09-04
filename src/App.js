@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from "react-router-dom";
 
 import Container from '@material-ui/core/Container';
 
@@ -10,10 +11,12 @@ import './app.css';
 function App() {
 
     return (
-    <Container>
-        <Navbar/>
-        <Intro/>
-    </Container>
+        <BrowserRouter>
+            <Container>
+                <Navbar/>
+                <Intro/>
+            </Container>
+        </BrowserRouter>
   );
 }
 

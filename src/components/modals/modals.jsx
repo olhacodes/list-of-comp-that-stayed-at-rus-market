@@ -5,12 +5,6 @@ import {
     Card,
     CardContent,
     Dialog,
-    Typography,
-    Button,
-    TableBody,
-    TableRow,
-    TableCell,
-    CardHeader, Avatar, IconButton, Link
 } from '@material-ui/core';
 import DialogTitle from '../dialog-title';
 
@@ -18,11 +12,9 @@ import {ProjectContext} from "../../context/context";
 import ModalShare from "./modal-share";
 
 import './modals.css';
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import ShareIcon from "@material-ui/icons/Share";
 
-const Modals = ({company, brand_hashtag, alternatives_img, alternatives, id}) => {
-    const {openModal, setCopied, handleCloseModal, modalComponent, handleOpenModal} = useContext(ProjectContext);
+const Modals = ({company, brand_hashtag}) => {
+    const {openModal, setCopied, handleCloseModal, modalComponent} = useContext(ProjectContext);
     const {t: translateKey} = useTranslation();
 
     const shareUrl = 'https://www.dontfundwar.com/';

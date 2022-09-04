@@ -12,7 +12,7 @@
   "gen_alternatives": "Альтернативи",
   "gen_modal-title-actions": "Нагадайте компанії не фінансувати війну в соціальних мережах",
   "gen_copied": "Повідомлення скопійовано",
-  "category_baby-care": "Дитячий догляд",
+  "category_Baby-Diapers": "Дитячі підгузки",
   "P&G_alertMessage": "$76 млрд. доходу. Більш ніж 5000 працівників",
   "category_fabric-care": "Догляд за одягом",
   "category_paper": "Папір",
@@ -37,5 +37,16 @@
   "gen_stayed": "Залишились",
   "gen_left": "Покинули",
   "country_Kazakhstan": "Казахстан",
-  "airlines_alertMessage-left": "Призупинили польоти в Росію"
+  "airlines_alertMessage-left": "Призупинили польоти в Росію",
+  "country_Latvia": "Латвія",
+  "country_Malta": "Мальта",
+  "airlines_alertMessage-suspension": "Тимчасово припинити співпрацю з російською авіакомпанією",
+  "country_cyprus": "Кипр",
+  "country_spain": "Іспанія",
+  "country_Korea": "Корея",
+  "country_germany": "Німетчина",
+  "country_Qatar": "Катар",
+  "country_Sri-Lanka": "Шрі Ланка",
+  "country_Vietnam": "В'єтнам",
+  "country_Hungary": "Угорщина"
 }

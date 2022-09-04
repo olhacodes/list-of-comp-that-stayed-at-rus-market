@@ -12,7 +12,7 @@
   "gen_search": "Search by brand, company name, country",
   "gen_modal-title-actions": "Remind the company don't fund the war in social media",
   "gen_copied": "This message was copied",
-  "category_baby-care": "Baby Care",
+  "category_Baby-Diapers": "Baby Diapers",
   "P&G_alertMessage": "$76 billions revenue. More Than 5000 employees.",
   "category_fabric-care": "Fabric Care",
   "category_paper": "Paper",
@@ -37,5 +37,16 @@
   "gen_stayed": "Stayed",
   "gen_left": "Left",
   "country_Kazakhstan": "Kazakhstan",
-  "airlines_alertMessage-left": "Suspended flights to Russia"
+  "airlines_alertMessage-left": "Suspended flights to Russia",
+  "country_Latvia": "Latvia",
+  "country_Malta": "Malta",
+  "airlines_alertMessage-suspension": "Temporarily suspend partnership with Russian airline",
+  "country_cyprus": "Cyprus",
+  "country_spain": "Spain",
+  "country_Korea": "Korea",
+  "country_germany": "Germany",
+  "country_Qatar": "Qatar",
+  "country_Sri-Lanka": "Sri Lanka",
+  "country_Vietnam": "Vietnam",
+  "country_Hungary": "Hungary"
 }

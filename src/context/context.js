@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import cookies from "js-cookie";
 import i18next from "i18next";
 
@@ -6,16 +6,41 @@ import data from '../data.json';
 
 export const ProjectContext = createContext({});
 
+const companiesFromData = data.Sheet1.map(company => company);
+
 export const ProjectProvider = ({children}) => {
     const [currentLanguageCode, setCurrentLanguageCode] = useState(cookies.get('i18next') || 'en');
+
+    const [companies, setCompanies] = useState(companiesFromData);
+    const [inputSearch, setInputSearch] = useState('');
+    const [filters, setFilters] = useState({status: 'all'}); // stayed, left, all
+
     const [openModal, setOpenModal] = useState(null);
-    const [copied, setCopied] = useState(false);
     const [modalComponent, setModalComponent] = useState('');
 
-    const companies = data.Sheet1.map(company => company);
+    const [copied, setCopied] = useState(false);
+
+    const filteredCompanies = companies
+        .filter(card => { // searh filtering
+            const companyMatch = card.company.toLowerCase().includes(inputSearch.toLowerCase());
+            const countryMatch = card.country.toLowerCase().includes(inputSearch.toLowerCase());
+            const brandsMatch = card.brands.toLowerCase().includes(inputSearch.toLowerCase());
+
+            return companyMatch || countryMatch || brandsMatch
+        })
+        .filter(card => { // apply filters
+            if (filters.status === 'all') return true;
+            console.log(card.status === filters.status)
+            return card.status === filters.status;
+        })
 
     const changeLanguage = (code) => {
         setCurrentLanguageCode(i18next.changeLanguage(code))
+    };
+
+    const setInputValue = e => {
+        e.preventDefault();
+        setInputSearch(e.target.value)
     };
 
     const handleOpenModal = (id, modal) => {
@@ -29,6 +54,9 @@ export const ProjectProvider = ({children}) => {
         setModalComponent('')
     }
 
+    const stayedCount = companies.filter(company => company.status.includes('stayed')).length;
+    const leftCount = companies.filter(company => company.status.includes('left')).length;
+
     const value = {
         currentLanguageCode,
         changeLanguage,
@@ -39,7 +67,14 @@ export const ProjectProvider = ({children}) => {
         copied,
         setCopied,
         modalComponent,
-        companies
+        companies,
+        filteredCompanies,
+        setCompanies,
+        setInputValue,
+        setFilters,
+        filters,
+        stayedCount,
+        leftCount
     }
 
     return (

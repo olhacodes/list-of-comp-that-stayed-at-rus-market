@@ -29,7 +29,6 @@ export const ProjectProvider = ({children}) => {
             return companyMatch || countryMatch || brandsMatch
         })
         .filter(card => { // apply filters
-
             if (filters.status !== 'all' && card.status !== filters.status) {
                 return false;
             }

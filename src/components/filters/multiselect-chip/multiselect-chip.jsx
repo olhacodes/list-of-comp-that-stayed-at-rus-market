@@ -10,6 +10,8 @@ const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
+        maxWidth: 400,
+        width: '50%'
     },
     chips: {
         display: 'flex',
@@ -17,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
     chip: {
         margin: 2,
+        width: 'fit-content'
     }
 }));
 
@@ -26,7 +29,7 @@ export default function MultipleSelectChip() {
 
     const [category, setCategory] = useState([]);
     const [country, setCountry] = useState([]);
-    const {uniqueCategory, uniqueCountry} =useContext(ProjectContext);
+    const {uniqueCategory, uniqueCountry, setFilters, filters} =useContext(ProjectContext);
 
     const filtersChips = [
         {
@@ -43,6 +46,10 @@ export default function MultipleSelectChip() {
         },
     ];
 
+    const handleDeleteChip = (chipToDelete) => () => {
+        filtersChips.map(filter => filter.onChange((chips) => chips.filter((chip) => chip !== chipToDelete)));
+    };
+
     return (
         <div className='d-flex justify-content-center gap-3'>
             {filtersChips.map(chip => (
@@ -52,21 +59,19 @@ export default function MultipleSelectChip() {
                         multiple
                         value={chip.value}
                         onChange={(e) => chip.onChange(e.target.value)}
-                        input={<Input />}
-                        renderValue={(selected) => (
-                            <div className={classes.chips}>
-                                {selected.map((value) => (
-                                    <Chip key={value} label={translateKey(value)} className={classes.chip}/>
-                                ))}
-                            </div>
-                        )}
-                    >
+                        input={<Input />}>
                         {chip.filters.map(filter => (
                             <MenuItem key={filter} value={filter}>
                                 {translateKey(filter)}
                             </MenuItem>
                         ))}
                     </Select>
+                    <div className='d-flex flex-wrap'>
+                        {chip.value.map(value => (
+                            <Chip key={value} label={translateKey(value)} className={classes.chip}
+                            onDelete={handleDeleteChip(value)}/>
+                        ))}
+                    </div>
                 </FormControl>
             ))}
         </div>

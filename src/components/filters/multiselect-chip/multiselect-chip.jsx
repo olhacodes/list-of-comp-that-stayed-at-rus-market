@@ -1,22 +1,15 @@
 import React, {useContext, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import ListItemText from '@material-ui/core/ListItemText';
-import Select from '@material-ui/core/Select';
-import Checkbox from '@material-ui/core/Checkbox';
-import Chip from '@material-ui/core/Chip';
+import { makeStyles } from '@material-ui/core/styles';
+import {Input, InputLabel, MenuItem, FormControl, Select, Chip} from '@material-ui/core';
+
 import {ProjectContext} from "../../../context/context";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
-        maxWidth: 300,
     },
     chips: {
         display: 'flex',
@@ -24,65 +17,51 @@ const useStyles = makeStyles((theme) => ({
     },
     chip: {
         margin: 2,
-    },
-    noLabel: {
-        marginTop: theme.spacing(3),
-    },
+    }
 }));
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-        },
-    },
-};
 
 export default function MultipleSelectChip() {
     const classes = useStyles();
     const {t: translateKey} = useTranslation();
 
     const [category, setCategory] = useState([]);
+    const [country, setCountry] = useState([]);
     const {uniqueCategory, uniqueCountry} =useContext(ProjectContext);
 
-    const handleChange = (event) => {
-        setCategory(event.target.value);
-    };
-
-    const filtersChip = [
+    const filtersChips = [
         {
             inputLabel: 'gen_category',
-            values: uniqueCategory
+            filters: uniqueCategory,
+            onChange: setCategory,
+            value: category
         },
         {
             inputLabel: 'gen_country',
-            values: uniqueCountry
+            filters: uniqueCountry,
+            onChange: setCountry,
+            value: country
         },
     ];
 
     return (
-        <div>
-            {filtersChip.map(chip => (
-                <FormControl className={classes.formControl}>
+        <div className='d-flex justify-content-center gap-3'>
+            {filtersChips.map(chip => (
+                <FormControl key={chip.inputLabel} className={classes.formControl}>
                     <InputLabel>{translateKey(chip.inputLabel)}</InputLabel>
                     <Select
                         multiple
-                        value={category}
-                        onChange={handleChange}
+                        value={chip.value}
+                        onChange={(e) => chip.onChange(e.target.value)}
                         input={<Input />}
                         renderValue={(selected) => (
                             <div className={classes.chips}>
                                 {selected.map((value) => (
-                                    <Chip key={value} label={value} className={classes.chip} />
+                                    <Chip key={value} label={translateKey(value)} className={classes.chip}/>
                                 ))}
                             </div>
                         )}
-                        MenuProps={MenuProps}
                     >
-                        {chip.values.map(filter => (
+                        {chip.filters.map(filter => (
                             <MenuItem key={filter} value={filter}>
                                 {translateKey(filter)}
                             </MenuItem>

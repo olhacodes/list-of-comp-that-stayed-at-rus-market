@@ -37,8 +37,8 @@ export const ProjectProvider = ({children}) => {
             return true;
         })
 
-    const uniqueCategory = [...new Set(companies.map(item => item.category))].sort((a, b) => (a > b) - (a < b))
-    const uniqueCountry = [...new Set(companies.map(item => item.country))].sort((a, b) => (a > b) - (a < b))
+    const uniqueCategory = [...new Set(companies.map(item => item.category))].sort((a, b) => a.localeCompare(b))
+    const uniqueCountry = [...new Set(companies.map(item => item.country))].sort((a, b) => a.localeCompare(b))
 
     const changeLanguage = (code) => {
         setCurrentLanguageCode(i18next.changeLanguage(code))

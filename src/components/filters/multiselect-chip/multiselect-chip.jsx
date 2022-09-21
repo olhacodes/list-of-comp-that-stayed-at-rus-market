@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -29,7 +29,7 @@ export default function MultipleSelectChip() {
 
     const [category, setCategory] = useState([]);
     const [country, setCountry] = useState([]);
-    const {uniqueCategory, uniqueCountry, setFilters, filters} =useContext(ProjectContext);
+    const {uniqueCategory, uniqueCountry, setFilters, filters} = useContext(ProjectContext);
 
     const filtersChips = [
         {
@@ -48,6 +48,7 @@ export default function MultipleSelectChip() {
 
     const handleDeleteChip = (chipToDelete) => () => {
         filtersChips.map(filter => filter.onChange((chips) => chips.filter((chip) => chip !== chipToDelete)));
+        setFilters({...filters, category: 'all'})
     };
 
     return (
@@ -59,7 +60,7 @@ export default function MultipleSelectChip() {
                         multiple
                         value={chip.value}
                         onChange={(e) => chip.onChange(e.target.value)}
-                        input={<Input />}>
+                        input={<Input/>}>
                         {chip.filters.map(filter => (
                             <MenuItem key={filter} value={filter}>
                                 {translateKey(filter)}
@@ -68,7 +69,7 @@ export default function MultipleSelectChip() {
                     </Select>
                     <div className='d-flex flex-wrap'>
                         {chip.value.map(value => (
-                            <Chip key={value} label={translateKey(value)} className={classes.chip}
+                            <Chip key={value.chip} label={translateKey(value)} className={classes.chip}
                             onDelete={handleDeleteChip(value)}/>
                         ))}
                     </div>

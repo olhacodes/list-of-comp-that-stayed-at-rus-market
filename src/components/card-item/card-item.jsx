@@ -78,7 +78,9 @@ export default function CardItem({id, logo, country, company, img, alertMessage,
             <Chip label={translateKey(category)} className={classes.chip} />
             <CardContent>
                 {alertMessage ? (
-                    <Alert className={classes.alert} severity={status === 'stayed' ? 'error' : 'success'}>{translateKey(alertMessage)}</Alert>)
+                    <Alert className={classes.alert} severity={status === 'stayed' ? 'error' : 'success'}>
+                        {translateKey(alertMessage)}
+                    </Alert>)
                     : null}
                 {brands.split(',').length === 1 ? (
                     null

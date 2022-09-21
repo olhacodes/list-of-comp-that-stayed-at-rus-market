@@ -32,9 +32,12 @@ export const ProjectProvider = ({children}) => {
             if (filters.status !== 'all' && card.status !== filters.status) {
                 return false;
             }
+            if(filters.category !== 'all' && card.category !== filters.category) {
+                return false
+            }
 
             return true;
-        })
+        });
 
     const uniqueCategory = [...new Set(companies.map(item => item.category))].sort((a, b) => a.localeCompare(b))
     const uniqueCountry = [...new Set(companies.map(item => item.country))].sort((a, b) => a.localeCompare(b))
